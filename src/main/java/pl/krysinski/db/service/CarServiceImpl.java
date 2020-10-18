@@ -34,7 +34,7 @@ public class CarServiceImpl implements CarService{
 
         int finalLowDateProduction = lowDateProduction;
         int finalMaxDateProduction = maxDateProduction;
-        return carList.stream().filter(car -> finalLowDateProduction < car.getDateProduction() && finalMaxDateProduction > car.getDateProduction()).collect(Collectors.toList());
+        return carList.stream().filter(car -> finalLowDateProduction <= car.getDateProduction() && finalMaxDateProduction >= car.getDateProduction()).collect(Collectors.toList());
     }
 
     @Override
