@@ -37,7 +37,7 @@ public class CarDAOImpl implements CarDAO {
                 String.valueOf(element.get("mark")),
                 String.valueOf(element.get("model")),
                 Color.valueOf(String.valueOf(element.get("color"))),
-                String.valueOf(element.get("dateProduction"))
+                Integer.parseInt(String.valueOf(element.get("dateProduction")).substring(0,4))
 
         )));
         return carList;

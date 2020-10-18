@@ -7,9 +7,9 @@ public class Car {
   private String mark;
   private String model;
   private Color color;
-  private String dateProduction;
+  private Integer dateProduction;
 
-  public Car(long carsId, String mark, String model, Color color, String dateProduction) {
+  public Car(long carsId, String mark, String model, Color color, Integer dateProduction) {
     this.carsId = carsId;
     this.mark = mark;
     this.model = model;
@@ -56,12 +56,22 @@ public class Car {
   }
 
 
-  public String getDateProduction() {
+  public Integer getDateProduction() {
     return dateProduction;
   }
 
-  public void setDateProduction(String dateProduction) {
+  public void setDateProduction(Integer dateProduction) {
     this.dateProduction = dateProduction;
   }
 
+  @Override
+  public String toString() {
+    return "Car{" +
+            "carsId=" + carsId +
+            ", mark='" + mark + '\'' +
+            ", model='" + model + '\'' +
+            ", color=" + color +
+            ", dateProduction='" + dateProduction + '\'' +
+            '}';
+  }
 }
