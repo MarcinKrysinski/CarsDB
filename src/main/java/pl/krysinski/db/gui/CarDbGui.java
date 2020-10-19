@@ -10,6 +10,7 @@ import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import pl.krysinski.db.model.Car;
 import pl.krysinski.db.model.Color;
+import pl.krysinski.db.model.validator.ColorValidator;
 import pl.krysinski.db.service.CarServiceImpl;
 
 import java.util.List;
@@ -66,7 +67,7 @@ public class CarDbGui extends HorizontalLayout {
         addButton.addThemeName("primary");
         addButton.addClickListener(event -> {
             Car newCar = new Car(Long.parseLong(carId.getValue()), carMark.getValue(), carModel.getValue(),
-                    Color.valueOf(carColor.getValue()), Integer.parseInt(carDateProduction.getValue()));
+                    Color.valueOf(ColorValidator.validateColor(carColor.getValue())), Integer.parseInt(carDateProduction.getValue()));
             carService.addCar(newCar);
             getCars();
             carId.clear();
